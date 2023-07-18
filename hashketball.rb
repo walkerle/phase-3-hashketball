@@ -1,3 +1,5 @@
+require 'pry'
+
 # Write your code below game_hash
 def game_hash
   {
@@ -127,3 +129,33 @@ def game_hash
 end
 
 # Write code here
+# puts game_hash[:home][:players]
+# puts game_hash[:away][:players]
+
+def all_players
+  game_hash[:home][:players] + (game_hash[:away][:players])
+end
+
+# puts all_players
+
+def player_stats player_name
+  all_players.find { |player| player[:player_name] == player_name }
+  # all_players.find do |player|
+  #   player[:player_name] == player_name
+  # end
+end
+
+# puts player_stats "Alan Anderson"
+puts player_stats "Jeff Adrien"
+
+def num_points_scored player_name
+  player = player_stats(player_name)
+  player[:points]
+end
+
+# puts num_points_scored "Alan Anderson"
+puts num_points_scored "Jeff Adrien"
+# puts num_points_scored.class
+
+# binding.pry
+0
